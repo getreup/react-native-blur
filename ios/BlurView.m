@@ -1,10 +1,10 @@
 #import "BlurView.h"
-#import "BlurAmount.h"
 
 
 @implementation BlurView {
   UIVisualEffectView *_visualEffectView;
-  UIBlurEffect * blurEffect;
+    UIBlurEffect * blurEffect;
+    NSNumber *localBlurAmount;
 }
 
 - (void)setBlurType:(NSString *)blurType
@@ -15,13 +15,13 @@
 
   self.clipsToBounds = true;
   if ([blurType isEqual: @"xlight"]) {
-    blurEffect = [BlurAmount effectWithStyle:UIBlurEffectStyleExtraLight];
+    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
   } else if ([blurType isEqual: @"light"]) {
-    blurEffect = [BlurAmount effectWithStyle:UIBlurEffectStyleLight];
+    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
   } else if ([blurType isEqual: @"dark"]) {
-    blurEffect = [BlurAmount effectWithStyle:UIBlurEffectStyleDark];
+    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
   } else {
-    blurEffect = [BlurAmount effectWithStyle:UIBlurEffectStyleDark];
+    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
   }
 
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -34,7 +34,7 @@
 
 - (void)setBlurAmount:(NSNumber *)blurAmount
 {
-    [BlurAmount updateBlurAmount:blurAmount];
+    localBlurAmount = blurAmount;
 }
 
 @end
