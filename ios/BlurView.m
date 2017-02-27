@@ -35,7 +35,6 @@
 - (void)setBlurAmount:(NSNumber *)blurAmount
 {
     localBlurAmount = blurAmount;
-    [blurEffect setValue:localBlurAmount forKey:@"blurRadius"];
 }
 
 @end
